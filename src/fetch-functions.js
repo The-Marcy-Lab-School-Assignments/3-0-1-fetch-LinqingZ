@@ -37,12 +37,12 @@ export const getUserPosts = (userId, maxNumPosts=3) => {
 
 export const createNewUser = (newUserData) => {
     return fetch(userUrl, {
-        method: "POST",                      // The type of HTTP request
-        body: JSON.stringify(newUserData),       // The data to be sent to the API
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json"
-        }
-        }).then((response) => {
-            return response.json();
-        })
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newUserData)
+    }).then((response) => {
+        return response.json();
+    })
 }

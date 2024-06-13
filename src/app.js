@@ -27,8 +27,6 @@ export default function app(appDiv) {
   .then((users) => {
     renderUsers(parentEls.usersUl, users);
   })
-  .then(() => getUserPosts(1))
-  .then(posts => renderPosts(parentEls.postsUl, posts))
   .catch((error) => {
     console.error('Error:', error);
   });
@@ -49,10 +47,15 @@ export default function app(appDiv) {
     const formData = new FormData(parentEls.newUserForm);
     const username = formData.get('username');
     const email = formData.get('email');
-    createNewUser(username, email)
+    const newUserData = { username, email };
+    createNewUser(newUserData)
       .then((newUser) => {
+        // console.log(newUser)
+        
         renderNewUser(parentEls.newUserDiv, newUser);
         parentEls.newUserForm.reset();
-      });
+      }).catch((error) => {
+        console.error('Error:', error);
+  });
   });
 }
