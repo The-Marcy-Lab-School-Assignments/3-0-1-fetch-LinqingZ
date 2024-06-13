@@ -31,6 +31,7 @@ export const setupPageBasics = (parentEl) => {
 };
 
 export const renderStatus = () => {
+  
 }
 
 export const renderUsers = () => {
